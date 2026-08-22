@@ -1,0 +1,4 @@
+interface:
+  display_name: "Windows WSL Deploy"
+  short_description: "Safely update and verify WSL-hosted services"
+  default_prompt: "Use $windows-wsl-deploy to update a remote WSL service and verify the deployed revision."

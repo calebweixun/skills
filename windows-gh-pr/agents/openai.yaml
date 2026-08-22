@@ -1,0 +1,4 @@
+interface:
+  display_name: "Windows GitHub PR"
+  short_description: "Create PRs with Windows gh CLI"
+  default_prompt: "Use $windows-gh-pr to push the current branch and create a draft pull request safely."
