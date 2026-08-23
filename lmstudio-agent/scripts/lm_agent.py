@@ -118,7 +118,9 @@ def main():
             sys.exit(1)
         input_text = input_path.read_text(encoding="utf-8")
     elif not sys.stdin.isatty():
-        input_text = sys.stdin.read()
+        stdin_data = sys.stdin.read()
+        if stdin_data.strip():
+            input_text = stdin_data
 
     messages = build_messages(
         task=args.task,
