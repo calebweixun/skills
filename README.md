@@ -14,6 +14,7 @@
 | [grill-with-docs](grill-with-docs/) | 邊 `/grilling` 邊用 `/domain-modeling` 產出 ADR 與詞彙表。來源：[mattpocock/skills](https://github.com/mattpocock/skills)。 |
 | [grilling](grilling/) | 對計畫或想法做窮追猛打式的壓力測試訪談。來源：[mattpocock/skills](https://github.com/mattpocock/skills)。 |
 | [kymco-text-defect-review](kymco-text-defect-review/) | 用 ego-browser 覆核 Kymco Vision Platform 車牌 OCR 判讀結果，比對車牌圖與辨識文字框，修正誤判並匯入。已在正式環境跑過 2951 筆、121 筆修正並獨立驗證。 |
+| [lmstudio-agent](lmstudio-agent/) | 直連本機 LM Studio API 執行單次文字任務（改寫、翻譯、摘要），避開 opencode 等 agent 框架的龐大系統提示詞開銷。含已知的思考模式模型失控限制與排查方式。 |
 | [ui-ux-pro-max](ui-ux-pro-max/) | UI/UX 設計指引：色票、字體配對、UX guideline、圖表類型、跨技術棧建議。來源：[nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)。原本 `data`/`scripts` 是失效的相對路徑殘留，已從上游取回真實檔案並實測可執行，細節見 `ui-ux-pro-max/README.md`。 |
 | [windows-gh-pr](windows-gh-pr/) | 在 Windows 上用已登入的 GitHub CLI 建立/更新 PR，處理連線與認證失敗。 |
 | [windows-wsl-deploy](windows-wsl-deploy/) | 從 Windows 更新並驗證跑在 WSL 的應用：Git 同步、前後端建置、systemd 重啟、健康檢查。 |
