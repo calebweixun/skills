@@ -60,6 +60,9 @@ hc kill review-x; hc rm review-x
   1. `hc keys <t> down down enter`，選「Continue without trusting」。
   2. 把範本內文加上任務，用 `hc send` 重送一次。
   3. 版本更新提示已經在範本關掉了（`check_for_update_on_startup=false`）。要更新 Codex 時，請使用者自己執行 `codex update`。
+- **agy 啟動時出現 `blocked (auth)` 通知**：通常是登入狀態還在載入，屬於暫時狀態。先跑 `hc wait <t> --timeout 15`，再用 `hc get` 看 status，變成 `working` 就不必處理。
+- **Codex 不會把狀態回報給 hc**：status 一直是 null，所以 `hc wait` 只會逾時，不會在它做完時返回。要知道它做完沒，看畫面上還有沒有 `Working (`：
+  `hc wait <t> --timeout 190; hc read <t> --lines 0 | grep -q "Working (" || echo 完成`
 - **重送前先讀**：`first_message.sent` 為 false，或 send 失敗時，先 `hc read` 確認對方沒收到再送。
 
 ## 4. 品質一致的做法
