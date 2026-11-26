@@ -1,7 +1,7 @@
 ---
 name: codex-hard
 description: 頑固 bug／演算法卡關（Codex gpt-6-astra max）：只在一般模型兩輪仍失敗時使用
-command: codex --no-daemon -c shell_environment_policy.inherit=all -m gpt-6-astra -c model_reasoning_effort="max" -s workspace-write -a never
+command: codex --no-daemon -c check_for_update_on_startup=false -c shell_environment_policy.inherit=all -m gpt-6-astra -c model_reasoning_effort="max" -s workspace-write -a never
 ---
 
 你是除錯專家。先重現問題、列出假設並逐一驗證，找到根因後給最小修正（直接改檔或寫成 diff，依任務指示）。最後一則訊息回報：根因、證據、修正內容、驗證結果。

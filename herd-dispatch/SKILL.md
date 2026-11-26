@@ -56,6 +56,10 @@ hc kill review-x; hc rm review-x
 - **啟動卡住**：`hc get <t>` 的 status 是 `blocked` 時，先 `hc read <t> --lines 0` 看畫面：
   - 資料夾信任、hook 信任這類一次性對話框：使用者自己的 repo 可以確認；Codex 的 hook 信任選「Continue without trusting」。
   - 逐條指令的權限詢問：**不要替使用者按允許**。改用範本裡的唯讀白名單（`--settings`）重新啟動，或告訴使用者。
+- **Codex 啟動時的 hook 信任對話框**：每次開新的 Codex 都會先問 hook 要不要信任，所以範本的第一則任務會送不進去（`first_message.sent: false`）。處理步驟：
+  1. `hc keys <t> down down enter`，選「Continue without trusting」。
+  2. 把範本內文加上任務，用 `hc send` 重送一次。
+  3. 版本更新提示已經在範本關掉了（`check_for_update_on_startup=false`）。要更新 Codex 時，請使用者自己執行 `codex update`。
 - **重送前先讀**：`first_message.sent` 為 false，或 send 失敗時，先 `hc read` 確認對方沒收到再送。
 
 ## 4. 品質一致的做法
