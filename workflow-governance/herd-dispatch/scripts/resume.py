@@ -24,6 +24,7 @@ sys.path.insert(0, HERE)
 LIMIT_RE = re.compile(
     r"hit your (usage )?limit|usage limit reached|limit will reset|rate limit(ed| reached| exceeded)|"
     r"RESOURCE_EXHAUSTED|quota (exceeded|exhausted)|exhausted your|try again at|429 Too Many", re.I)
+BUSY_RE = re.compile(r"Working \(|Waiting for background terminal|esc to interrupt|Generating\.\.\.", re.I)
 AUTO_RE = re.compile(r"continues automatically when it resets", re.I)
 TIME_RE = re.compile(r"(?:reset[s]?(?: at)?|try again at|available at)\s*(?:[A-Za-z]{3,9}\.? \d{1,2}(?:st|nd|rd|th)?,? (?:\d{4} )?)?"
                      r"(?:at )?(\d{1,2})(?::(\d{2}))?\s*([ap]\.?m\.?)?", re.I)
@@ -102,6 +103,10 @@ def main():
         st = (info.get("status") or {}).get("state") if isinstance(info.get("status"), dict) else info.get("status")
         if st == "working":
             hc("wait", t, "--timeout", "1800", timeout=1900)
+            continue
+        if st is None and BUSY_RE.search(screen_tail(t, 12)):
+            # Codex 等不回報狀態的 agent：看畫面判斷仍在工作
+            hc("wait", t, "--timeout", "190", timeout=260)
             continue
         if st == "blocked":
             log(t, "需要人介入（blocked），不代送：", screen_tail(t, 8)); return 9
