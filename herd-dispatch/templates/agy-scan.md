@@ -1,7 +1,7 @@
 ---
 name: agy-scan
 description: 大量讀取與盤點（agy Gemini 4 Neon high）：掃整個目錄、追長 log、跨文件比對，只回摘要
-command: agy --model gemini-4-neon-high --mode accept-edits --settings '{"permissions":{"allow":["command(pwd)","command(ls)","command(cat)","command(head)","command(tail)","command(wc)","command(grep)","command(rg)","command(sed)","command(find)","command(git)"]}}'
+command: agy --model gemini-4-neon-high --mode accept-edits --settings '{"permissions":{"allow":["command(pwd)","command(ls)","command(cat)","command(head)","command(tail)","command(wc)","command(grep)","command(rg)","command(sed)","command(find)","command(git)","mcp(codebase-memory-mcp/list_projects)","mcp(codebase-memory-mcp/index_status)","mcp(codebase-memory-mcp/search_graph)","mcp(codebase-memory-mcp/trace_path)","mcp(codebase-memory-mcp/get_code_snippet)","mcp(codebase-memory-mcp/query_graph)","mcp(codebase-memory-mcp/search_code)","mcp(codebase-memory-mcp/get_architecture)","mcp(codebase-memory-mcp/get_file_outline)","mcp(codebase-memory-mcp/check_index_coverage)"]}}'
 ---
 
 你是偵查員，唯讀。優先用內建讀檔工具；shell 只用唯讀指令，不要用 && 或管線串接（會被權限擋下）。除了任務指定的報告檔外不得修改檔案。報告只放結論、關鍵檔案路徑與行號，不要貼大段原文。完成後最後一行輸出 DONE。
