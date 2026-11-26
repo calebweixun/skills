@@ -1,0 +1,439 @@
+{
+  "version": 1,
+  "description": "Single source of truth for cross-OS (macOS/Windows/Linux) and cross-agent (Claude/Codex/Gemini/Cursor) skill management.",
+  "profiles": {
+    "core": {
+      "description": "日常核心工程組：代理治理、發想訪談、架構圖譜、系統化除錯、極簡審查、資安稽核與 Anti-Slop 核心",
+      "skills": [
+        "claude-governance",
+        "herd-dispatch",
+        "grilling",
+        "grill-with-docs",
+        "brainstorming",
+        "executing-plans",
+        "find-skills",
+        "domain-modeling",
+        "codebase-memory",
+        "systematic-debugging",
+        "security-audit",
+        "ponytail",
+        "ponytail-review",
+        "ponytail-audit",
+        "ponytail-debt",
+        "antislop",
+        "antislop-code"
+      ]
+    },
+    "frontend": {
+      "description": "前端視覺品味、UI/UX 設計系統、React/Next.js/shadcn 最佳實踐與網站健檢",
+      "skills": [
+        "design-taste-frontend",
+        "ui-ux-pro-max",
+        "frontend-design",
+        "web-design-guidelines",
+        "vercel-react-best-practices",
+        "vercel-composition-patterns",
+        "shadcn",
+        "react-dev",
+        "web-artifacts-builder",
+        "audit-website",
+        "antislop",
+        "antislop-ui",
+        "antislop-human",
+        "antislop-layoutmobile"
+      ]
+    },
+    "writing": {
+      "description": "去 AI 腔調文案、技術寫作、互動式 HTML 報告與離線視覺化",
+      "skills": [
+        "antislop",
+        "antislop-copywriting",
+        "html-report",
+        "show-me",
+        "technical-writer"
+      ]
+    },
+    "domain": {
+      "description": "本機環境部署、本地模型、瀏覽器自動化與個人專案工作流",
+      "skills": [
+        "windows-gh-pr",
+        "windows-wsl-deploy",
+        "lmstudio-agent",
+        "dgpa-suspension",
+        "heptabase-chatgpt-migrate",
+        "kymco-text-defect-review",
+        "green-engineering-motion"
+      ]
+    }
+  },
+  "skills": {
+    "claude-governance": {
+      "category": "workflow-governance",
+      "origin": "self",
+      "platforms": ["all"],
+      "upstream": {
+        "repo": "https://github.com/calebweixun/claude-governance",
+        "note": "細則同步自個人治理 Repo"
+      }
+    },
+    "herd-dispatch": {
+      "category": "workflow-governance",
+      "origin": "self",
+      "platforms": ["all"]
+    },
+    "grilling": {
+      "category": "workflow-governance",
+      "origin": "third-party",
+      "platforms": ["all"],
+      "upstream": {
+        "repo": "https://github.com/mattpocock/skills",
+        "path": "skills/productivity/grilling",
+        "license": "MIT"
+      }
+    },
+    "grill-with-docs": {
+      "category": "workflow-governance",
+      "origin": "third-party",
+      "platforms": ["all"],
+      "upstream": {
+        "repo": "https://github.com/mattpocock/skills",
+        "path": "skills/engineering/grill-with-docs",
+        "license": "MIT"
+      }
+    },
+    "brainstorming": {
+      "category": "workflow-governance",
+      "origin": "third-party",
+      "platforms": ["all"],
+      "upstream": {
+        "repo": "https://github.com/obra/superpowers",
+        "path": "skills/brainstorming"
+      }
+    },
+    "executing-plans": {
+      "category": "workflow-governance",
+      "origin": "third-party",
+      "platforms": ["all"],
+      "upstream": {
+        "repo": "https://github.com/obra/superpowers",
+        "path": "skills/executing-plans"
+      }
+    },
+    "find-skills": {
+      "category": "workflow-governance",
+      "origin": "third-party",
+      "platforms": ["all"],
+      "upstream": {
+        "repo": "https://github.com/vercel-labs/skills",
+        "path": "skills/find-skills"
+      }
+    },
+    "domain-modeling": {
+      "category": "architecture-quality",
+      "origin": "third-party",
+      "platforms": ["all"],
+      "upstream": {
+        "repo": "https://github.com/mattpocock/skills",
+        "path": "skills/engineering/domain-modeling",
+        "license": "MIT"
+      }
+    },
+    "codebase-memory": {
+      "category": "architecture-quality",
+      "origin": "third-party",
+      "platforms": ["all"],
+      "upstream": {
+        "repo": "https://github.com/DeusData/codebase-memory-mcp"
+      }
+    },
+    "systematic-debugging": {
+      "category": "architecture-quality",
+      "origin": "third-party",
+      "platforms": ["all"],
+      "upstream": {
+        "repo": "https://github.com/obra/superpowers",
+        "path": "skills/systematic-debugging"
+      }
+    },
+    "security-audit": {
+      "category": "architecture-quality",
+      "origin": "third-party",
+      "platforms": ["all"],
+      "upstream": {
+        "repo": "https://github.com/cloudflare/security-audit-skill",
+        "path": "skills/security-audit",
+        "license": "MIT",
+        "syncedAt": "2026-11-26"
+      }
+    },
+    "ponytail": {
+      "category": "architecture-quality",
+      "origin": "third-party",
+      "platforms": ["all"],
+      "upstream": {
+        "repo": "https://github.com/DietrichGebert/ponytail",
+        "path": "skills/ponytail",
+        "license": "MIT",
+        "version": "4.10.0"
+      }
+    },
+    "ponytail-review": {
+      "category": "architecture-quality",
+      "origin": "third-party",
+      "platforms": ["all"],
+      "upstream": {
+        "repo": "https://github.com/DietrichGebert/ponytail",
+        "path": "skills/ponytail-review",
+        "license": "MIT",
+        "version": "4.10.0"
+      }
+    },
+    "ponytail-audit": {
+      "category": "architecture-quality",
+      "origin": "third-party",
+      "platforms": ["all"],
+      "upstream": {
+        "repo": "https://github.com/DietrichGebert/ponytail",
+        "path": "skills/ponytail-audit",
+        "license": "MIT",
+        "version": "4.10.0"
+      }
+    },
+    "ponytail-debt": {
+      "category": "architecture-quality",
+      "origin": "third-party",
+      "platforms": ["all"],
+      "upstream": {
+        "repo": "https://github.com/DietrichGebert/ponytail",
+        "path": "skills/ponytail-debt",
+        "license": "MIT",
+        "version": "4.10.0"
+      }
+    },
+    "design-taste-frontend": {
+      "category": "frontend-ui",
+      "origin": "third-party",
+      "platforms": ["all"],
+      "upstream": {
+        "repo": "https://github.com/Leonxlnx/taste-skill",
+        "path": "skills/taste-skill",
+        "license": "MIT",
+        "version": "2.5.1",
+        "syncedAt": "2026-11-26"
+      }
+    },
+    "ui-ux-pro-max": {
+      "category": "frontend-ui",
+      "origin": "third-party",
+      "platforms": ["all"],
+      "upstream": {
+        "repo": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+        "path": ".claude/skills/ui-ux-pro-max",
+        "license": "MIT"
+      }
+    },
+    "frontend-design": {
+      "category": "frontend-ui",
+      "origin": "third-party",
+      "platforms": ["all"],
+      "upstream": {
+        "repo": "https://github.com/anthropics/skills",
+        "path": "skills/frontend-design"
+      }
+    },
+    "web-design-guidelines": {
+      "category": "frontend-ui",
+      "origin": "third-party",
+      "platforms": ["all"],
+      "upstream": {
+        "repo": "https://github.com/vercel-labs/agent-skills",
+        "path": "skills/web-design-guidelines"
+      }
+    },
+    "vercel-react-best-practices": {
+      "category": "frontend-ui",
+      "origin": "third-party",
+      "platforms": ["all"],
+      "upstream": {
+        "repo": "https://github.com/vercel-labs/agent-skills",
+        "path": "skills/react-best-practices"
+      }
+    },
+    "vercel-composition-patterns": {
+      "category": "frontend-ui",
+      "origin": "third-party",
+      "platforms": ["all"],
+      "upstream": {
+        "repo": "https://github.com/vercel-labs/agent-skills",
+        "path": "skills/composition-patterns"
+      }
+    },
+    "shadcn": {
+      "category": "frontend-ui",
+      "origin": "third-party",
+      "platforms": ["all"],
+      "upstream": {
+        "repo": "https://github.com/shadcn/ui",
+        "path": "skills/shadcn",
+        "license": "MIT"
+      }
+    },
+    "react-dev": {
+      "category": "frontend-ui",
+      "origin": "third-party",
+      "platforms": ["all"],
+      "upstream": {
+        "repo": "https://github.com/softaworks/agent-toolkit",
+        "path": "skills/react-dev"
+      }
+    },
+    "web-artifacts-builder": {
+      "category": "frontend-ui",
+      "origin": "third-party",
+      "platforms": ["all"],
+      "upstream": {
+        "repo": "https://github.com/anthropics/skills",
+        "path": "skills/web-artifacts-builder"
+      }
+    },
+    "audit-website": {
+      "category": "frontend-ui",
+      "origin": "third-party",
+      "platforms": ["all"],
+      "upstream": {
+        "repo": "https://github.com/squirrelscan/skills",
+        "path": "audit-website"
+      }
+    },
+    "antislop": {
+      "category": "content-reporting",
+      "origin": "third-party",
+      "platforms": ["all"],
+      "upstream": {
+        "repo": "https://github.com/miqdadbadjuber/anti-slop",
+        "path": "skills/antislop",
+        "license": "MIT",
+        "version": "3.2.32",
+        "syncedAt": "2026-11-26"
+      }
+    },
+    "antislop-ui": {
+      "category": "content-reporting",
+      "origin": "third-party",
+      "platforms": ["all"],
+      "upstream": {
+        "repo": "https://github.com/miqdadbadjuber/anti-slop",
+        "path": "skills/antislop-ui",
+        "license": "MIT",
+        "version": "3.2.32",
+        "syncedAt": "2026-11-26"
+      }
+    },
+    "antislop-copywriting": {
+      "category": "content-reporting",
+      "origin": "third-party",
+      "platforms": ["all"],
+      "upstream": {
+        "repo": "https://github.com/miqdadbadjuber/anti-slop",
+        "path": "skills/antislop-copywriting",
+        "license": "MIT",
+        "version": "3.2.32",
+        "syncedAt": "2026-11-26"
+      }
+    },
+    "antislop-human": {
+      "category": "content-reporting",
+      "origin": "third-party",
+      "platforms": ["all"],
+      "upstream": {
+        "repo": "https://github.com/miqdadbadjuber/anti-slop",
+        "path": "skills/antislop-human",
+        "license": "MIT",
+        "version": "3.2.32",
+        "syncedAt": "2026-11-26"
+      }
+    },
+    "antislop-layoutmobile": {
+      "category": "content-reporting",
+      "origin": "third-party",
+      "platforms": ["all"],
+      "upstream": {
+        "repo": "https://github.com/miqdadbadjuber/anti-slop",
+        "path": "skills/antislop-layoutmobile",
+        "license": "MIT",
+        "version": "3.2.32",
+        "syncedAt": "2026-11-26"
+      }
+    },
+    "antislop-code": {
+      "category": "content-reporting",
+      "origin": "third-party",
+      "platforms": ["all"],
+      "upstream": {
+        "repo": "https://github.com/miqdadbadjuber/anti-slop",
+        "path": "skills/antislop-code",
+        "license": "MIT",
+        "version": "3.2.32",
+        "syncedAt": "2026-11-26"
+      }
+    },
+    "html-report": {
+      "category": "content-reporting",
+      "origin": "self",
+      "platforms": ["all"]
+    },
+    "show-me": {
+      "category": "content-reporting",
+      "origin": "third-party",
+      "platforms": ["all"],
+      "upstream": {
+        "note": "源自 OpenAI Codex 視覺化技能工作流"
+      }
+    },
+    "technical-writer": {
+      "category": "content-reporting",
+      "origin": "third-party",
+      "platforms": ["all"],
+      "upstream": {
+        "repo": "https://github.com/shubhamsaboo/awesome-llm-apps",
+        "path": "awesome_agent_skills/technical-writer",
+        "license": "MIT"
+      }
+    },
+    "windows-gh-pr": {
+      "category": "automation-domain",
+      "origin": "self",
+      "platforms": ["windows"]
+    },
+    "windows-wsl-deploy": {
+      "category": "automation-domain",
+      "origin": "self",
+      "platforms": ["windows"]
+    },
+    "lmstudio-agent": {
+      "category": "automation-domain",
+      "origin": "self",
+      "platforms": ["all"]
+    },
+    "dgpa-suspension": {
+      "category": "automation-domain",
+      "origin": "self",
+      "platforms": ["all"]
+    },
+    "heptabase-chatgpt-migrate": {
+      "category": "automation-domain",
+      "origin": "self",
+      "platforms": ["all"]
+    },
+    "kymco-text-defect-review": {
+      "category": "automation-domain",
+      "origin": "self",
+      "platforms": ["all"]
+    },
+    "green-engineering-motion": {
+      "category": "automation-domain",
+      "origin": "self",
+      "platforms": ["all"]
+    }
+  }
+}

@@ -1,0 +1,8 @@
+interface:
+  display_name: "HTML Report"
+  short_description: "Create interactive HTML reports"
+  brand_color: "#2563EB"
+  default_prompt: "Use $html-report to create an interactive HTML report."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,4 @@
+interface:
+  display_name: "綠工課程動態圖示"
+  short_description: "沿用簡報素材，以 Three.js 製作可預覽、可匯出的課程重點動態圖示"
+  default_prompt: "使用 $green-engineering-motion 製作指定課程頁面的重點動態圖示，依原稿安排動作並交付可預覽與匯出的 MG 專案。"
