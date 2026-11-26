@@ -94,6 +94,15 @@ def main():
     t, rounds, backoff, seen_turn = a.terminal, 0, a.fallback_min, None
     handled = set()  # 已處理過的上限訊息行，避免續跑後殘留在畫面上又被觸發
 
+    # 啟動寬限：agent 剛開還沒進入 working（或暫時 blocked auth）時不判斷，最多等 5 分鐘
+    deadline = time.time() + 300
+    while not a.dry_run and time.time() < deadline:
+        i0 = get(t)
+        s0 = (i0.get("status") or {}).get("state") if isinstance(i0.get("status"), dict) else i0.get("status")
+        if not i0 or i0.get("state") == "finished" or s0 == "working" or BUSY_RE.search(screen_tail(t, 12)):
+            break
+        hc("wait", t, "--timeout", "15", timeout=60)
+
     while rounds < a.max_rounds:
         info = get(t)
         if not info:
