@@ -93,7 +93,7 @@ _skills/
 | [dgpa-suspension](automation-domain/dgpa-suspension/) | 透過 `ego-browser` 自動擷取行政院人事行政總處天然災害停班停課公告與各縣市狀態。 | 自建 |
 | [heptabase-chatgpt-migrate](automation-domain/heptabase-chatgpt-migrate/) | 透過 `ego-browser` 操作已登入的 ChatGPT 網頁版將 Heptabase 白板筆記改寫為 Obsidian wikilink，並以腳本機械化核對連結數。 | 自建 |
 | [kymco-text-defect-review](automation-domain/kymco-text-defect-review/) | 透過 `ego-browser` 覆核 Kymco Vision Platform 車牌 OCR 判讀結果、修正誤判並匯入驗證。 | 自建 |
-| [green-engineering-motion](automation-domain/green-engineering-motion/) | 綠色工程教學課程 Three.js `1080p / 59.94fps` 單頁重點動畫（MG）與口白逐字對位整集製作規範。 | 自建 |
+| [green-engineering-motion](automation-domain/green-engineering-motion/) | 綠色工程教學課程 Three.js 透明 MG：整集口白逐字對位、片頭、單頁重點動畫，`1080p / 59.94fps` 透明 ProRes 輸出、版面編輯器與驗證／審查流程。 | 自建 |
 
 ---
 

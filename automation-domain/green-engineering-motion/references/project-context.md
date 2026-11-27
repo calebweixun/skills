@@ -1,73 +1,52 @@
 # 專案與素材位置
 
-這份交接依 2026-11-05 的本機檔案及已完成的片頭整理。開始新任務時重新檢視指定頁面與來源檔，避免使用過期截圖。
+本機路徑整理（已完成第 0、1、2 集與單頁／片頭專案）。開始新任務時重新檢視指定頁面與來源檔，避免使用過期截圖。
 
 ## 原始內容
 
 | 用途 | 本機位置 |
 | --- | --- |
-| 課程主簡報 | `E:/綠工影片/機器設備智能診斷系統暨綠色工程_v3.pptx` |
-| 主簡報 PDF | `E:/綠工影片/機器設備智能診斷系統暨綠色工程_v3.pdf` |
+| 課程主簡報 | `E:/綠工影片/機器設備智能診斷系統暨綠色工程_v3.pptx`（PDF 同名 `.pdf`） |
 | 片頭設計來源 | `E:/綠工影片/片頭元素.pptx` |
 | 其他靜態素材 PDF | `E:/綠工影片/靜態元素.pdf` |
-| 靜態版型與素材 | `E:/綠工影片/簡報靜態/` |
+| 靜態版型與素材 | `E:/綠工影片/簡報靜態/`（`0_片頭.png`、`1_目錄.png`、`2_內容.png`、`3_片尾.png`、`Intro.png`） |
+| 老師簡報靜態 PNG | `E:/綠工影片/簡報靜態/pdf` |
+| 參考成片（ep0） | `E:/綠工影片/Adobe Export/ep0_3.mp4`（約 1:35 為「課程重點」模組）；第二集原音 `ep1.mp4`（只有音訊，約 6:08.64） |
 
-`簡報靜態/` 已有 `0_片頭.png`、`1_目錄.png`、`2_內容.png`、`3_片尾.png`、`Intro.png`。這些是片頭、目錄、內容、片尾等版型素材，檔名前的數字不能直接視為主簡報投影片頁碼。應檢查圖片和主簡報的實際對應關係。
+`簡報靜態/` 檔名前的數字不是主簡報投影片頁碼，須檢查圖片與主簡報的實際對應。PowerPoint 實際投影片編號以 1 起算並包含封面；先確認「頁碼＋頁面標題」再抽取元素。PDF 與 PowerPoint 若有差異，依使用者指定的主要來源並說明。notesSlide 編號與 slide 編號不一定一一相同，內容對照以圖片與口白為主。
 
-PowerPoint 實際投影片編號採 1 起算並包含封面。先確認「頁碼＋頁面標題」，再抽取元素。PDF 與 PowerPoint 若有內容或版本差異，依使用者指定的主要來源處理並說明差異。
+## 已完成專案（皆在 `E:/綠工影片/MG-Pages/`）
 
-## 已完成的參考專案
-
-| 參考 | 路徑 |
+| 專案 | 用途 |
 | --- | --- |
-| 第一版片頭 | `E:/綠工影片/MG-Earth-Interlock/` |
-| 電影式片頭，目前實作 02.2 | `E:/綠工影片/MG-Earth-Interlock-Cinematic/` |
-| 片頭最終圖 | `E:/綠工影片/MG-Earth-Interlock-Cinematic/exports/Endpoint-1920x1080.png` |
-| 片頭成片 | `E:/綠工影片/MG-Earth-Interlock-Cinematic/exports/Earth-Interlock-Cinematic-1080p5994.mp4` |
-| 分鏡檢視 | `E:/綠工影片/MG-Earth-Interlock-Cinematic/review/storyboard.jpg` |
-| 檢查結果 | `E:/綠工影片/MG-Earth-Interlock-Cinematic/review/verification.json` |
+| `episode-002-diagnostics` | 整集範本（最完整）：引擎、`page.js` helper、`tools/*`、`review/*` 範例、README「工程／可攜性」 |
+| `page-001-opening` | ep0 開場 MG（老師置中，口白 0→52.85 s，3168 格）；README 記錄切點互相關與接點 |
+| `page-002-net-zero`、`page-002-net-zero-editor` | ep0 第 2 頁；版面編輯器來源 |
+| `page-003-dual-axis` | 共用 `src/engine`；`src/scenes/transition.js`「課程重點」章節卡 |
+| `page-004-energy-transition` | 比例參考與單頁範本；議程卡片 |
+| `page-005-circular-economy`、`page-006-course-goals` | ep0 內容頁 |
+| `_shared/seq03` | 口白、`word-alignment.json`、`segments.json` |
+| `_review/` | 全序列連續性檢視影片、contact sheet、接點靜格 |
 
-02.2 採 720 影格／12.012 秒；舊稿在該專案的 `versions/`。讀取程式時以目前的 `src/` 為準，避免將舊版本的動作當成現行實作。
+地球片頭（舊專案）：`E:/綠工影片/MG-Earth-Interlock/`（第一版）、`MG-Earth-Interlock-Cinematic/`（02.2，720 格／12.012 s；`exports/Endpoint-1920x1080.png`、`review/storyboard.jpg`、`review/verification.json`）。讀程式以目前 `src/` 為準，`versions/` 是舊稿。舊片頭預覽埠 4174／4173，伺服器不一定仍在執行；新專案選自己的可用埠並回報實際 URL。
 
-片頭預覽原本使用 4174 埠；第一版使用 4173 埠。伺服器不一定仍在執行。新頁面使用自己的可用埠，回報實際啟動的 URL。
+## 可借用的程式
 
-## 可以借用的程式
+- 引擎：`src/engine/*`（`renderAt`、版面編輯器、`export-check.js`）、`src/scene.js`（單位像素座標、圖層分組、pivot、endpoint）。
+- `server.mjs`：本機靜態伺服器、版面存取（`revision`、409）、輸出工作、`MG_LISTEN`／Host 白名單。
+- `tools/browser.mjs`（本機 Edge／Chrome，讀 `MG_URL`）、`render.mjs`、`verify.mjs`／`verify.py`、`finalize.mjs`、`smoke.mjs`、`cuesync.mjs`、`still.mjs`、`audit.mjs`、`idcheck.mjs`、`transcribe.py`。
+- 片頭專用的東西（`extract_pptx.ps1`、`prepare_assets.py`、`prepare_frame.py`、地球語意的驗收取樣）換頁時要依實際投影片尺寸、shape ID、裁切區域與影格數調整，不可直接沿用。
 
-- `src/export.js`：以固定時間逐格繪製與 H.264 編碼。
-- `server.mjs`：本機靜態伺服器、套件映射及 MP4 range request。
-- `tools/browser.mjs`：使用本機 Edge／Chrome 的驗證入口；讀取 `MG_URL`。
-- `src/scene.js`：單位像素座標、圖層分組、pivot、endpoint、前後遮擋。
-- `src/cinematic-effects.js`：緩動、路徑描繪、回彈及背景轉場的實例。
-- `tools/verify.mjs`：實際影片樣本解碼、FPS、逐格定位與定格檢查的實例。
+## 環境與版本
 
-這些檔案包含片頭專用細節。重用時保留所需機制，將構圖、元件和教學行為換成本頁內容。
-
-特別注意：
-
-- `tools/extract_pptx.ps1` 目前指定第 1 張投影片和 shape ID 11–30；座標換算也為片頭設定。新頁面要依實際投影片尺寸、頁碼及 shape ID 調整。
-- `tools/prepare_assets.py` 包含片頭專屬的城市遮罩、特定 ID 和匯出比例。
-- `tools/prepare_frame.py` 的裁切區域是片頭的邊框、飾帶與校徽。
-- 預覽 HTML、章節按鈕、工具腳本內的影格數與時間點，要與新頁面的設定同步。部分腳本仍有片頭的固定數字。
-- 原檢查程式的「地球在中央」「對角轉白」及畫面區域取樣屬於片頭語意。新頁面改為本頁的驗收行為。
+- 已驗證：Three.js `0.187.0`、Mediabunny `1.65.1`、Playwright `1.62.1`；以實際 `package.json`／lockfile 為準。
+- 環境變數：`MG_PYTHON`、`MG_PY_PACKAGES`、`MG_FONT`、`MG_TMP`、`MG_MODELS`、`MG_URL`、`PORT`、`MG_LISTEN`、`MG_ALLOWED_HOSTS`、`MG_SMOKE_PORT`、`MG_EXPORT_DIR`（說明見 [episode-production.md](episode-production.md) P-12、P-13）。
+- 專案自足：每個專案自有 `node_modules` 與 `tools/bin/ffmpeg.exe`，不用 junction 連到別的專案。
 
 ## 單頁隔離
 
-建議每頁放在 `E:/綠工影片/MG-Pages/page-007-short-name/` 這類目錄。不同頁面或方案使用不同目錄；已有成品先保存版本再修改。
+每頁放 `E:/綠工影片/MG-Pages/page-007-short-name/` 這類目錄；已有成品先保存版本再修改。原簡報、`簡報靜態/` 與已完成專案唯讀，抽圖、加工、程式與影片都寫入本頁目錄。
 
-原簡報、`簡報靜態/` 和已完成的片頭作為共用來源。新頁面的抽圖、加工、程式與影片都寫入本頁目錄。
+程式探索遵循專案的 codebase-memory-mcp 約定：先查 graph，未索引則先索引；圖譜未提供 source 時再讀已定位的檔案。
 
-本機已驗證的套件版本為 Three.js `0.187.0`、Mediabunny `1.65.1`、Playwright `1.62.1`。這是片頭當時的版本，重用時以實際 `package.json`／lockfile 為準。
-
-程式探索遵循專案的 codebase-memory-mcp 約定：先查 graph，未索引則先索引；查目前的 `src/`，留意 `versions/` 的舊符號。圖譜未提供 source 或漏掉所需內容時，再針對已定位的檔案讀取。
-
-## 整集（第一、二集）專案
-
-| 參考 | 路徑 |
-| --- | --- |
-| 第二集（最新範本） | `E:/綠工影片/MG-Pages/episode-002-diagnostics/` |
-| 編輯器來源／共用引擎／章節卡 | `MG-Pages/page-002-net-zero-editor`、`page-003-dual-axis`（`src/engine`、`src/scenes/transition.js`） |
-| 口白與逐字對位 | `MG-Pages/_shared/seq03/`（`word-alignment.json`、`segments.json`）；第二集 `review/alignment.json` |
-| 全序列連續性檢視 | `MG-Pages/_review/` |
-| 老師簡報靜態 PNG | `E:/綠工影片/簡報靜態/pdf` |
-
-做整集時的製作規則、時間對位與驗證流程見 [整集口白 MG 製作經驗](episode-production.md)。
+製作規則見 [整集製作經驗與陷阱](episode-production.md)，單頁細節見 [implementation.md](implementation.md)。
