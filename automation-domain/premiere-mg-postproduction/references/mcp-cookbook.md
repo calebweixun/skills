@@ -24,7 +24,8 @@ MCP 只直接開放 5 個工具：`search_tools`、`get_tool_schema`、`invoke_t
 5. **顏色值精度遺失**：`White Balance`、`Key Color` 這類顏色會以 64 位元整數回傳，經過 JSON 後精度已經掉了，不能拿來判斷實際顏色。
 6. **Windows 路徑**：`export_frame` 的 `outputPath` 要用反斜線（JSON 裡寫成 `\\`）。用正斜線曾得到 `Unknown error exception`。在 bash heredoc 或某些工具裡，`\\` 會被吃成單一反斜線，因此 `mcpcall.mjs` 提供 `"WIN<C:/a/b.png>"` 的寫法，由它自動轉換。
 7. **一次只送一個指令**：bridge 透過檔案逐一處理指令，不要同時送出多個呼叫。批次作業請在一個迴圈裡依序執行，長時間的工作放到背景跑。
-8. **輸出很長**：一個片段的 `get_effect_properties` 大約 12 KB。先存成檔案，再用 node 挑出需要的欄位，不要整包塞進對話。
+8. **`verify_premiere_connection` 會自動開啟 Premiere**：Premiere 沒在執行時，呼叫它會直接啟動 Premiere，然後回傳 `bridge_unavailable`（`launched: true`）。只想確認狀態時，先用 `Get-Process 'Adobe Premiere Pro'` 檢查 Premiere 有沒有在跑。
+9. **輸出很長**：一個片段的 `get_effect_properties` 大約 12 KB。先存成檔案，再用 node 挑出需要的欄位，不要整包塞進對話。
 
 ## 不在對話內工具時：`scripts/mcpcall.mjs`
 

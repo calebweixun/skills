@@ -439,7 +439,17 @@
     "premiere-mg-postproduction": {
       "category": "automation-domain",
       "origin": "self",
-      "platforms": ["windows"]
+      "platforms": ["windows"],
+      "requires": {
+        "mcp": [
+          {
+            "name": "premiere-pro",
+            "repo": "https://github.com/hetpatel-11/Adobe_Premiere_Pro_MCP",
+            "license": "MIT",
+            "verified": "v1.2.11 (b866e64) + Premiere Pro 2027 27.0.0 + CEP 12.0.1"
+          }
+        ]
+      }
     }
   }
 }

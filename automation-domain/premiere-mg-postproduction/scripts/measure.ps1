@@ -27,10 +27,10 @@ function Parse([string] $spec) {
     }
 }
 
-foreach ($r in Parse $Regions) {
+foreach ($box in Parse $Regions) {
     $sr = 0; $sg = 0; $sb = 0; $n = 0; $clip = 0
-    for ($x = $r.X0; $x -lt $r.X1; $x += $Step) {
-        for ($y = $r.Y0; $y -lt $r.Y1; $y += $Step) {
+    for ($x = $box.X0; $x -lt $box.X1; $x += $Step) {
+        for ($y = $box.Y0; $y -lt $box.Y1; $y += $Step) {
             $p = $bmp.GetPixel($x, $y)
             $sr += $p.R; $sg += $p.G; $sb += $p.B; $n++
             if ($p.R -ge 250 -and $p.G -ge 250) { $clip++ }
@@ -38,7 +38,7 @@ foreach ($r in Parse $Regions) {
     }
     $R = $sr / $n; $G = $sg / $n; $B = $sb / $n
     '{0,-10} R{1,4:N0} G{2,4:N0} B{3,4:N0}  Y{4,4:N0}  R/G {5:N2}  clip {6:P0}' -f `
-        $r.Name, $R, $G, $B, (0.2126 * $R + 0.7152 * $G + 0.0722 * $B), ($R / [math]::Max($G, 1)), ($clip / $n)
+        $box.Name, $R, $G, $B, (0.2126 * $R + 0.7152 * $G + 0.0722 * $B), ($R / [math]::Max($G, 1)), ($clip / $n)
 }
 
 foreach ($r in Parse $Sharpness) {
