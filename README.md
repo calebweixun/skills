@@ -93,7 +93,19 @@ _skills/
 | [dgpa-suspension](automation-domain/dgpa-suspension/) | 透過 `ego-browser` 自動擷取行政院人事行政總處天然災害停班停課公告與各縣市狀態。 | 自建 |
 | [heptabase-chatgpt-migrate](automation-domain/heptabase-chatgpt-migrate/) | 透過 `ego-browser` 操作已登入的 ChatGPT 網頁版將 Heptabase 白板筆記改寫為 Obsidian wikilink，並以腳本機械化核對連結數。 | 自建 |
 | [kymco-text-defect-review](automation-domain/kymco-text-defect-review/) | 透過 `ego-browser` 覆核 Kymco Vision Platform 車牌 OCR 判讀結果、修正誤判並匯入驗證。 | 自建 |
-| [green-engineering-motion](automation-domain/green-engineering-motion/) | 綠色工程教學課程 Three.js 透明 MG：整集口白逐字對位、片頭、單頁重點動畫，`1080p / 59.94fps` 透明 ProRes 輸出、版面編輯器與驗證／審查流程。 | 自建 |
+
+### 【綠色工程跨領域產學共育學程】MOOCs 影片剪輯使用技能
+
+製作本學程 MOOCs 教學影片時使用的兩個技能：先以 `green-engineering-motion` 依老師簡報與口白製作 MG 疊圖，再以 `premiere-mg-postproduction` 在 Premiere Pro 完成人像調色與字幕收尾。
+
+已送出的成片：
+
+- <https://youtu.be/pWk1UkDlBPk>
+- <https://youtu.be/PAu16B4j6tA>
+
+| Skill | 功能說明 | 來源 |
+|---|---|---|
+| [green-engineering-motion](automation-domain/green-engineering-motion/) | Three.js 透明 MG 疊圖製作：整集口白逐字對位、片頭、單頁重點動畫、版面編輯操作台，`1080p / 59.94fps` 透明 ProRes 輸出與驗證／審查流程；內附可直接複製的整集與單頁專案範本。 | 自建 |
 | [premiere-mg-postproduction](automation-domain/premiere-mg-postproduction/) | 透過 Premiere Pro MCP 為 MG 教學影片後製收尾：去背老師人像依背景分組調色、亮度與清晰度修正（以輸出畫面量測後再調參），以及字幕處理。 | 自建（MCP：[hetpatel-11/Adobe_Premiere_Pro_MCP](https://github.com/hetpatel-11/Adobe_Premiere_Pro_MCP)） |
 
 ---
