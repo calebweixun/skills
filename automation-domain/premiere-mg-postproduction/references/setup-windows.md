@@ -70,4 +70,4 @@ claude mcp get premiere-pro   # 應顯示 ✔ Connected
 
 ### `verify_premiere_connection` 回 `bridge_unavailable`，但面板明明在跑
 - 檢查 `bridge-heartbeat.json` 的 `t` 和現在時間相差多少，應該小於 2.5 秒。
-- 檢查 MCP server 拿到的 `PREMIERE_TEMP_DIR` 是不是同一個資料夾。曾發生過的狀況：從 bash 腳本傳入時反斜線被吃掉，路徑變成 `C:UsersCZ...`。路徑一律用正斜線或 `scripts/mcpcall.mjs` 的 `WIN<...>` 包法傳入。
+- 檢查 MCP server 拿到的 `PREMIERE_TEMP_DIR` 是不是同一個資料夾。曾發生過的狀況：從 bash 腳本傳入時反斜線被吃掉，路徑變成 `C:Users<user>AppData...`。路徑一律用正斜線或 `scripts/mcpcall.mjs` 的 `WIN<...>` 包法傳入。

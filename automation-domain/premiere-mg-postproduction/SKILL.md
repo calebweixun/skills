@@ -9,6 +9,10 @@ description: 透過 Premiere Pro MCP（hetpatel-11/Adobe_Premiere_Pro_MCP）幫 
 
 **核心原則：參數一律由畫面決定。** 不同老師、不同錄影現場、不同背景的數值都不一樣。本文件給的是量測方法、目標區間和調整規則；範例數值只是起點，不可直接照抄。
 
+**路徑慣例：** 文中的 `scripts/`、`references/` 都是相對於本 skill 目錄（也就是 SKILL.md 所在的資料夾），不是使用者的專案資料夾。執行腳本時請用完整路徑，例如 `node <skill 目錄>/scripts/mcpcall.mjs`；量測產生的畫面與對照圖則放在暫存資料夾。
+
+**涵蓋範圍：** 老師人像的調色、亮度、清晰度，以及字幕流程。音訊（音量、降噪）、剪輯節奏、轉場與 MG 動畫本身都不在這份 skill 裡；MG 動畫製作見 `green-engineering-motion`。
+
 ## 0. 環境：先連上 Premiere
 
 1. 若這台電腦還沒裝 MCP，照 [環境安裝與排錯](references/setup-windows.md) 安裝。Windows 上最常卡的兩關：PATH 裡有壞掉的項目導致 `'"node"' is not recognized`，以及 Premiere 26.5／2027 拒絕載入未簽章的 CEP 面板。
@@ -33,7 +37,7 @@ description: 透過 Premiere Pro MCP（hetpatel-11/Adobe_Premiere_Pro_MCP）幫 
 2. **量測**：`scripts/measure.ps1` 會算出每塊區域的 RGB、亮度 Y、R/G 比、過曝比例和銳利度（Laplacian 能量）。
 3. **判讀**：對照目標區間與症狀表，決定要動哪幾個參數、往哪個方向調。先向使用者說明數據和打算怎麼改，再動手。
 4. **試套**：每個背景組只挑一段試改。`set_effect_property` 會回傳 `before` 和 `after`，把 `before` 記下來，要回復時用得到。
-5. **驗證**：重新匯出同一時間點，再量一次，用 `scripts/compare.ps1` 做「原本／調後」的對照圖，用 SendUserFile 傳給使用者看。數值沒到目標就再調一輪，常見原因是降白色、降亮部、降對比把曝光的效果抵掉了。
+5. **驗證**：重新匯出同一時間點，再量一次，用 `scripts/compare.ps1` 做「原本／調後」的對照圖，再傳給使用者看（例如用 SendUserFile，或請使用者直接開啟圖檔）。數值沒到目標就再調一輪，常見原因是降白色、降亮部、降對比把曝光的效果抵掉了。
 6. **全面套用**：使用者同意後才批次套用到其餘片段，接著把**每一段**的數值讀回來逐一核對，最後抽查幾個時間點的畫面。
 
 規則：一次只動一組相關參數；不同背景組分開設定曝光；任何批次修改前都要先取得使用者同意；改完提醒使用者按 Ctrl+S 存檔，MCP 不會自動存檔。
