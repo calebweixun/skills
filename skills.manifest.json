@@ -62,7 +62,8 @@
         "dgpa-suspension",
         "heptabase-chatgpt-migrate",
         "kymco-text-defect-review",
-        "green-engineering-motion"
+        "green-engineering-motion",
+        "premiere-mg-postproduction"
       ]
     }
   },
@@ -434,6 +435,11 @@
       "category": "automation-domain",
       "origin": "self",
       "platforms": ["all"]
+    },
+    "premiere-mg-postproduction": {
+      "category": "automation-domain",
+      "origin": "self",
+      "platforms": ["windows"]
     }
   }
 }

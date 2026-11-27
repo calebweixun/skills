@@ -1,0 +1,4 @@
+interface:
+  display_name: "MG 教學影片後製（Premiere MCP）"
+  short_description: "透過 Premiere Pro MCP 量測畫面，依背景分組修正老師人像的色彩、亮度與清晰度，並處理字幕"
+  default_prompt: "使用 $premiere-mg-postproduction 連上 Premiere，盤點指定序列的老師人像片段，先量測畫面再提出調色與清晰度修正，試套確認後再全面套用。"

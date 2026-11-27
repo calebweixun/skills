@@ -15,7 +15,7 @@ _skills/
 ├── architecture-quality/  # 領域建模、知識圖譜、極簡審查、系統化除錯與資安稽核 (8)
 ├── frontend-ui/           # 前端視覺品味、UI/UX 設計系統、React 最佳實踐與網站健檢 (10)
 ├── content-reporting/     # 去 AI 罐頭味 (Anti-Slop)、技術寫作與互動式視覺化報告 (9)
-├── automation-domain/     # Windows/WSL 部署維運、無頭瀏覽器自動化、本地模型與課程專案 (7)
+├── automation-domain/     # Windows/WSL 部署維運、無頭瀏覽器自動化、本地模型與課程專案 (8)
 └── scripts/               # 跨 OS (macOS/Windows/Linux) 統一管理工具 (manage.py + 殼層入口)
 ```
 
@@ -94,6 +94,7 @@ _skills/
 | [heptabase-chatgpt-migrate](automation-domain/heptabase-chatgpt-migrate/) | 透過 `ego-browser` 操作已登入的 ChatGPT 網頁版將 Heptabase 白板筆記改寫為 Obsidian wikilink，並以腳本機械化核對連結數。 | 自建 |
 | [kymco-text-defect-review](automation-domain/kymco-text-defect-review/) | 透過 `ego-browser` 覆核 Kymco Vision Platform 車牌 OCR 判讀結果、修正誤判並匯入驗證。 | 自建 |
 | [green-engineering-motion](automation-domain/green-engineering-motion/) | 綠色工程教學課程 Three.js 透明 MG：整集口白逐字對位、片頭、單頁重點動畫，`1080p / 59.94fps` 透明 ProRes 輸出、版面編輯器與驗證／審查流程。 | 自建 |
+| [premiere-mg-postproduction](automation-domain/premiere-mg-postproduction/) | 透過 Premiere Pro MCP 為 MG 教學影片後製收尾：去背老師人像依背景分組調色、亮度與清晰度修正（以輸出畫面量測後再調參），以及字幕處理。 | 自建（MCP：[hetpatel-11/Adobe_Premiere_Pro_MCP](https://github.com/hetpatel-11/Adobe_Premiere_Pro_MCP)） |
 
 ---
 
