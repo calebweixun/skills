@@ -1,17 +1,15 @@
 # 單頁任務提示、交接欄位與多 agent 分工
 
-每個新對話貼一份任務。填入頁碼和最想強調的內容即可；若重點還沒決定，可請 agent 從原頁選擇並說明。`$green-engineering-motion` 是已安裝的個人技能名稱；為了讓沒有自動載入技能的對話也能工作，提示同時提供 SKILL.md 路徑。
+每個新對話貼一份任務。填入頁碼和最想強調的內容即可；若重點還沒決定，可請 agent 從原頁選擇並說明。`$green-engineering-motion` 是技能名稱；沒有自動載入技能的對話，請改為「讀取技能資料夾內的 SKILL.md」（技能資料夾 = 本檔上一層，記為 <SKILL_DIR>）。
 
 ## A. 一頁一個重點動畫
 
 ```text
 請使用 $green-engineering-motion 製作這門課程的單頁重點動畫。
-若技能沒有自動載入，先讀取：
-C:/Users/CZ/.codex/skills/green-engineering-motion/SKILL.md
-也可讀取專案內可攜版本：
-E:/綠工影片/MG-製作指南/green-engineering-motion/SKILL.md
+若技能沒有自動載入，先讀取技能資料夾內的 SKILL.md（<SKILL_DIR>/SKILL.md）。
+簡報：<SLIDES>.pptx 第【頁碼】頁；專案資料夾：<PROJECT>/（由 <SKILL_DIR>/templates/single-page/ 複製）。
 
-來源：E:/綠工影片/機器設備智能診斷系統暨綠色工程_v3.pptx
+來源：<SLIDES>.pptx
 頁面：第【填頁碼】頁，包含封面、以 PowerPoint 實際編號為準。
 頁面標題：【可填，方便核對】
 這頁希望觀眾理解：【填一個主要重點；也可請你讀原頁後判斷】
@@ -30,7 +28,7 @@ E:/綠工影片/MG-製作指南/green-engineering-motion/SKILL.md
 採快速聚焦、清楚停留、適度卡通感和準確落位，依本頁內容安排節奏。
 片頭專案僅作動作與技術參考，本頁採自己的教學構圖。
 
-工作目錄：E:/綠工影片/MG-Pages/page-【三位數頁碼】-【英文短名】/
+工作目錄：<PROJECT>/（複製 <SKILL_DIR>/templates/single-page/）
 預覽埠：【填可用埠；也可由你選擇並回報】
 各頁獨立製作，原簡報、共用素材和既有片頭作為唯讀來源。
 
@@ -43,9 +41,9 @@ E:/綠工影片/MG-製作指南/green-engineering-motion/SKILL.md
 
 ```text
 請使用 $green-engineering-motion。
-若沒有自動載入，讀取 C:/Users/CZ/.codex/skills/green-engineering-motion/SKILL.md。
+若沒有自動載入，讀取技能資料夾內的 SKILL.md。
 
-為 E:/綠工影片/機器設備智能診斷系統暨綠色工程_v3.pptx 第【頁碼】頁，
+為 <SLIDES>.pptx 第【頁碼】頁，
 製作【物件或關係】的透明動態圖示，教學重點是【重點】。
 
 圖示將疊在原頁影片上，位置／可用區域為【座標或畫面描述】。
@@ -58,7 +56,7 @@ Three.js、1920×1080、60000/1001 fps，長度【秒數或請你安排】。
 每個輸出影格需保留 alpha；提供 PNG 序列或已驗證的透明影片（ProRes 4444），
 另附能切換淺／深底檢視透明邊緣的 HTML 預覽。
 
-在 E:/綠工影片/MG-Pages/page-【三位數頁碼】-【英文短名】/ 獨立製作。
+在 <PROJECT>/（複製 <SKILL_DIR>/templates/single-page/）獨立製作。
 自行選擇可用預覽埠，實際檢查圖示內容、影格規格和透明度後交付。
 ```
 
@@ -66,8 +64,8 @@ Three.js、1920×1080、60000/1001 fps，長度【秒數或請你安排】。
 
 ```text
 請使用 $green-engineering-motion，製作第【N】集的口白教學 MG。
-來源：口白／成片【路徑】、老師簡報【pptx 與 簡報靜態/pdf】、逐字稿【有／無，無則轉錄】。
-以 E:/綠工影片/MG-Pages/episode-002-diagnostics 為範本複製成 episode-00N-短名。
+來源：口白／成片【路徑】、老師簡報【<SLIDES>.pptx 與頁面 PNG 資料夾 <SLIDES_DIR>/】、逐字稿【有／無，無則轉錄】。
+以 <SKILL_DIR>/templates/episode/ 為範本複製成 <PROJECT>/（episode-00N-短名）。
 先做逐字對位與段落表給我確認，再開始建置；每輪回饋前先備份 layout.json 並跑 idcheck。
 交付：每段透明 MOV＋完整原音預覽 MP4＋verification.json＋對位表＋關鍵靜格與分鏡。
 ```

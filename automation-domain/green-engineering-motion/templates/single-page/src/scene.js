@@ -1,0 +1,13 @@
+// Scene entry (page mode only). Shared engine: ./engine/*. Page-specific content: ./scenes/*.js
+import {renderer,scene,camera} from './engine/stage.js';
+import {beforeLayoutFrame,applyLayoutFrame} from './engine/layout-engine.js';
+import {SCENE,DURATION,CLIP} from './config.js';
+import {posePage} from './scenes/page.js';
+export const mode=SCENE;
+export function renderAt(seconds){
+ beforeLayoutFrame();
+ const state=posePage(seconds);
+ applyLayoutFrame(scene);renderer.render(scene,camera);
+ return state;
+}
+export {renderer,scene,camera,CLIP,DURATION};

@@ -1,10 +1,10 @@
 # 整集口白 MG：製作經驗與陷阱（第 0、1、2 集）
 
-來自三集繁中教學影片（Three.js 透明 MG 疊在老師影片上）的使用者回饋與修正。格式：症狀 → 原因 → 修法。單頁任務也適用 P-1～P-6、P-8 的規則。範本專案與路徑見 [project-context.md](project-context.md)，驗收數字見 [qa-checklist.md](qa-checklist.md)。
+來自三集繁中教學影片（Three.js 透明 MG 疊在老師影片上）的使用者回饋與修正。格式：症狀 → 原因 → 修法。單頁任務也適用 P-1～P-6、P-8 的規則。範本專案與輸入見 [project-context.md](project-context.md)，驗收數字見 [qa-checklist.md](qa-checklist.md)。
 
 ## 範本專案內可直接重用的東西
 
-`E:/綠工影片/MG-Pages/episode-002-diagnostics`：
+`templates/episode/`（相對於技能資料夾）：
 
 - `src/config.js`：`PARTS`（`part(id,label,start,end,mode)`，模式 `left`／`center`／`full`）、`COLORS`、`FRAMES`。
 - `src/scenes/page.js`：`sync()`（進場＋cue 紀錄）、`title2`、`kicker2`、`chip`、`chain`、`emph`、`agenda2`、`bubble`、`ico()` 圖示圓盤、`turbine2／gearbox2／generator2／sensor2／leaf2`、`textAudit()`。
@@ -56,7 +56,7 @@ bubble(o, name, {x0, y0, w, h, tipY, lines})           // lines[i] = {segs:[[字
 ## P-5 圖解與簡報不一致、或解說一閃而過
 
 - 症狀：投影片被整張貼入；說明在彈出文字裡一閃而過。
-- 修法：內容與用字依老師簡報（`簡報靜態/pdf` PNG），以 MG 風格重繪，不複製投影片外觀。例：金字塔 → 疊放圓角層級（圖示＋標題＋副行），依口白由下往上建立，目前層以外框標示。把解說整合進圖表：TRL 各級描述緊鄰編號節點、沿曲線逐級累積，不用一閃而過的說明。色帶內多行標籤留邊距，檢查層級邊界。示意波形須註明為示意，不擴寫口白沒說的比較。不要發明簡報沒有的文字（曾有 agent 加英文副標，簡報並沒有，已移除）。
+- 修法：內容與用字依老師簡報（`<SLIDES_DIR>/` 的頁面 PNG），以 MG 風格重繪，不複製投影片外觀。例：金字塔 → 疊放圓角層級（圖示＋標題＋副行），依口白由下往上建立，目前層以外框標示。把解說整合進圖表：TRL 各級描述緊鄰編號節點、沿曲線逐級累積，不用一閃而過的說明。色帶內多行標籤留邊距，檢查層級邊界。示意波形須註明為示意，不擴寫口白沒說的比較。不要發明簡報沒有的文字（曾有 agent 加英文副標，簡報並沒有，已移除）。
 
 ## P-6 對話泡不像老師在說話
 
@@ -77,7 +77,7 @@ bubble(o, name, {x0, y0, w, h, tipY, lines})           // lines[i] = {segs:[[字
 
 - 症狀：太稀疏、或整寬厚重卡片堆疊。
 - 基準（ep0 實測，見範本 `review/ep0-style-notes.md`）：標題 60 粗體在 x=60、基線 y≈94，底線 y=158（3 px 灰 `#a0bcbf`）＋135×8 青綠重點；標籤 42–52、副行 40–44；行距 ≈ 1.35×字級；圖示為自由站立 180–330 px（或 250–300 px 圓盤），無外框卡片；底色塊每幀 ≤ 3 個；內容區 x60–1240、y190–1020，內容區墨水覆蓋率約 8–16%（ep0 為 2–17%）；底部列結束 y ≲ 1005（左下藍色裝飾在 y>1020）。一次一個概念，左→右、上→下，出現後留在畫面。
-- 摘要／議程卡重用 ep0「課程重點」模組（成片 `Adobe Export/ep0_3.mp4` 約 1:35；專案 page-004／`transition.js`）：卡片 x100 w1150 h116，列 y 470/600/730/860；編號圓盤 r38、標題 46 粗、副行 40 標準、圖示環 r50 位於 x1190。
+- 摘要／議程卡重用 ep0「課程重點」模組（ep0 成片 `<EP0_FILM>` 約 1:35；比例見 [ep0 風格筆記](ep0-style-notes.md) 與 `templates/single-page/`）：卡片 x100 w1150 h116，列 y 470/600/730/860；編號圓盤 r38、標題 46 粗、副行 40 標準、圖示環 r50 位於 x1190。
 - 修法：與 ep0 同時間點並排比對（`review/roundN/compare-*.jpg`）。
 
 ## P-9 開場彼此不一致

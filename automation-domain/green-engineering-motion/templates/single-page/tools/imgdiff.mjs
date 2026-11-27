@@ -1,0 +1,9 @@
+// node tools/imgdiff.mjs a.png b.png [--out diff.png]  -> prints differing pixel count, max channel delta, bounding box
+import {readFile,writeFile} from 'node:fs/promises';
+import {openBrowser} from './browser.mjs';
+const [a,b]=process.argv.slice(2).filter(x=>!x.startsWith('--')),out=process.argv.includes('--out')?process.argv[process.argv.indexOf('--out')+1]:null;
+const browser=await openBrowser();
+try{const page=await browser.newPage();const [A,B]=await Promise.all([readFile(a),readFile(b)]);
+ const r=await page.evaluate(async([A,B,wantOut])=>{const load=s=>new Promise(r=>{const i=new Image();i.onload=()=>r(i);i.src='data:image/png;base64,'+s;});const [x,y]=await Promise.all([load(A),load(B)]);const get=i=>{const c=document.createElement('canvas');c.width=i.width;c.height=i.height;const g=c.getContext('2d');g.drawImage(i,0,0);return g.getImageData(0,0,i.width,i.height);};const p=get(x),q=get(y);if(p.width!==q.width||p.height!==q.height)return {error:'size'};let n=0,max=0,x0=1e9,y0=1e9,x1=-1,y1=-1;const d=new ImageData(p.width,p.height);for(let i=0;i<p.data.length;i+=4){let m=0;for(let k=0;k<4;k++)m=Math.max(m,Math.abs(p.data[i+k]-q.data[i+k]));if(m){n++;max=Math.max(max,m);const px=(i/4)%p.width,py=Math.floor(i/4/p.width);x0=Math.min(x0,px);y0=Math.min(y0,py);x1=Math.max(x1,px);y1=Math.max(y1,py);}if(m){d.data[i]=255;d.data[i+1]=0;d.data[i+2]=0;d.data[i+3]=255;}}let png=null;if(wantOut){const c=document.createElement('canvas');c.width=p.width;c.height=p.height;c.getContext('2d').putImageData(d,0,0);png=c.toDataURL('image/png').split(',')[1];}return {differing:n,maxDelta:max,bbox:n?[x0,y0,x1,y1]:null,png};},[A.toString('base64'),B.toString('base64'),!!out]);
+ if(out&&r.png)await writeFile(out,Buffer.from(r.png,'base64'));delete r.png;console.log(JSON.stringify(r));
+}finally{await browser.close();}

@@ -1,0 +1,2 @@
+import {openBrowser} from './browser.mjs';
+const b=await openBrowser(),p=await b.newPage();try{await p.goto('http://127.0.0.1:4222/?clean=1');await p.waitForFunction(()=>window.MG?.ready);console.log(await p.evaluate(async()=>{let r=0,c=0,z=0;for(let i=0;i<120;i++){let a=performance.now();window.MG.renderAt(155+i*.0166833);let b=performance.now();const s=window.MG.canvas.toDataURL('image/png');let d=performance.now();r+=b-a;c+=d-b;z+=s.length;}return {renderMs:r,pngMs:c,bytes:z,fps:120000/(r+c)};}));}finally{await b.close();}

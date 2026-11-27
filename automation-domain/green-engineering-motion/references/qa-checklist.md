@@ -5,7 +5,7 @@
 ## 1. 審查流程
 
 1. 關鍵時刻靜格（`node tools/still.mjs <outdir> <t1,t2,...|part:<id>> [prefix]`，輸出白底、深底、老師參考三種）與每段附時間戳的分鏡（storyboard）。
-2. 與參考影片 ep0（`E:/綠工影片/Adobe Export/ep0_3.mp4`，1:35 「課程重點」模組；page-004）同時間點並排比對比例與密度。
+2. 與參考影片 ep0（`<EP0_FILM>`，若使用者有提供；1:35「課程重點」模組。沒有就以 [ep0 風格筆記](ep0-style-notes.md) 與 `examples/` 分鏡為基準）同時間點並排比對比例與密度。
 3. 誠實列出限制（例如示意波形、WebGL 大跳轉後首繪的 ≤1/255 邊緣差異、Premiere XML 未在 UI 實測匯入）。
 4. 通知審查者。回饋成輪：時間 → 插圖 → 比例 → 字重；每輪在 `review/roundN/` 保留 `before`、`after` 與前後對照圖、修改前 `layout.json` 備份、`idcheck` 結果、`render.log`。
 

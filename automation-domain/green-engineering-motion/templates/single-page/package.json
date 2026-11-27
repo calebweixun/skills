@@ -1,0 +1,1 @@
+{"name":"green-engineering-single-page","version":"1.0.0","private":true,"type":"module","scripts":{"start":"node server.mjs","render":"node tools/render.mjs","verify":"node tools/verify.mjs"},"dependencies":{"three":"0.187.0","mediabunny":"1.65.1"},"devDependencies":{"playwright":"1.62.1"}}

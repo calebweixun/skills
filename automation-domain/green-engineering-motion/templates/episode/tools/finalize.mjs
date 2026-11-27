@@ -1,0 +1,18 @@
+import {mkdir,readFile,writeFile,copyFile,stat} from 'node:fs/promises';
+import {spawnSync} from 'node:child_process';
+import {fileURLToPath} from 'node:url';
+import {randomUUID} from 'node:crypto';
+const base=new URL('../',import.meta.url),out=new URL('exports/v1/',base);
+const read=async name=>JSON.parse(await readFile(new URL(name,out),'utf8'));
+const report=await read('verification.json'),render=await read('render.json'),check=await read('export-check.json');
+if(!report.complete)throw new Error('Output verification is not complete.');
+if(!render.createdAt||!render.finishedAt||!Number.isFinite(Date.parse(render.createdAt))||!Number.isFinite(Date.parse(render.finishedAt))||Date.parse(render.finishedAt)<Date.parse(render.createdAt))throw new Error('Render has no valid real start/finish timestamps; render again before finalizing.');
+const output=new URL('Episode-002-Full-Narration-Preview.mp4',out);
+if((await stat(new URL('verification.json',out))).mtimeMs<(await stat(output)).mtimeMs)throw new Error('Verification predates the output; verify again.');
+const result=spawnSync(process.env.MG_PYTHON||'python',[fileURLToPath(new URL('tools/review_final.py',base))],{cwd:fileURLToPath(base),stdio:'inherit',windowsHide:true});
+if(result.error||result.status!==0)throw result.error||new Error('Could not generate actual-output preview.');
+const id=new Date().toISOString().replace(/[-:]/g,'').slice(0,15)+'-'+randomUUID().slice(0,8),dir=new URL(`exports/renders/${id}/`,base);await mkdir(dir,{recursive:true});
+for(const name of ['verification.json','render.json','export-check.json','layout.json'])await copyFile(new URL(name,out),new URL(name,dir));
+const layout=await read('layout.json');
+await writeFile(new URL('job.json',dir),JSON.stringify({id,scene:'page',status:'complete',progress:100,message:'第二集 MG 已完成並驗證。',createdAt:render.createdAt,finishedAt:render.finishedAt,layout,warnings:check.warnings||check.errors||[],files:{transparent:'/exports/v1/Episode-002-Transparent-1080p5994.mov',preview:'/exports/v1/Episode-002-Full-Narration-Preview.mp4',png:'/review/actual-output.jpg',layout:`/exports/renders/${id}/layout.json`}},null,2));
+console.log('Published verified local export links in the editor.');
